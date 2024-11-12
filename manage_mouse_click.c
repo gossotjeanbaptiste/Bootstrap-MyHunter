@@ -8,5 +8,5 @@
 
 void manage_mouse_click(sfMouseButtonEvent event)
 {
-    printf("Mouse x=%d y=%d", event.x, event.y);
+    printf("Mouse x=%d y=%d\n", event.x, event.y);
 }

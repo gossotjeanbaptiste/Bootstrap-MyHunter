@@ -6,50 +6,48 @@
 */
 #include "../include/csfml_include.h"
 
-typedef struct sfMusic sfMusic;
-
-int main() 
+int main(void)
 {
     sfVideoMode mode = {800, 600, 32};
-    sfRenderWindow* window;
-    sfTexture* texture;
-    sfSprite* sprite;
+    sfRenderWindow *window;
+    sfTexture *texture;
+    sfSprite *sprite;
     sfEvent event;
-    /* Create the main window */
-    window = sfRenderWindow_create(mode, "ELIOOOTTTTTTTTTTTT", sfResize | sfClose, NULL);
-    if (!window) {
-        return EXIT_FAILURE;
-    }
+
+    window = sfRenderWindow_create(mode, "ELIOOOTTTTTTTTTTTT",
+    sfResize | sfClose, NULL);
     texture = sfTexture_createFromFile("src/eliott.jpeg", NULL);
-    if (!texture) {
+    sprite = sfSprite_create();
+    if (!window || !texture) {
         return EXIT_FAILURE;
     }
-    sprite = sfSprite_create();
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfRenderWindow_setFramerateLimit(window, 30);
-    while (sfRenderWindow_isOpen(window)) {
-        
-        sfRenderWindow_clear(window, sfBlack);
-        sfRenderWindow_drawSprite(window, sprite, NULL);
-        sfRenderWindow_display(window);
-    }
-    /* Cleanup resources */
+    main_loop(window, event, sprite);
     sfSprite_destroy(sprite);
     sfTexture_destroy(texture);
     sfRenderWindow_destroy(window);
     return EXIT_SUCCESS;
 }
 
+void main_loop(sfRenderWindow* window, sfEvent event, sfSprite *sprite)
+{
+    while (sfRenderWindow_isOpen(window)) {
+        analyse_events(window, event);
+        sfRenderWindow_clear(window, sfBlack);
+        sfRenderWindow_drawSprite(window, sprite, NULL);
+        sfRenderWindow_display(window);
+    }
+}
+
 void analyse_events(sfRenderWindow *window, sfEvent event)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event.type == sfEvtClosed) {
-                sfRenderWindow_close(window);
-            }
-            if (event.type == sfEvtMouseButtonPressed) {
-                if (event.mouseButton.button) {
-                    manage_mouse_click(event.mouseButton);
-                }
-            }
+        if (event.type == sfEvtClosed) {
+            close_window(window);
         }
+        if (event.type == sfEvtMouseButtonPressed) {
+            manage_mouse_click(event.mouseButton);
+        }
+    }
 }

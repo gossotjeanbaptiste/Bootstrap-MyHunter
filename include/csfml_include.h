@@ -15,7 +15,8 @@
 
 #ifndef INCLUDED_CSFML_INCLUDE_H
     #define INCLUDED_CSFML_INCLUDE_H
-int main(void);
 void analyse_events(sfRenderWindow *window, sfEvent event);
 void manage_mouse_click(sfMouseButtonEvent event);
+void close_window(sfRenderWindow *window);
+void main_loop(sfRenderWindow* window, sfEvent event, sfSprite *sprite);
 #endif
