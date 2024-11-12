@@ -13,11 +13,17 @@ int main(void)
     sfTexture *texture;
     sfSprite *sprite;
     sfEvent event;
+    sfIntRect rect;
+
+    rect.top = 0;
+    rect.left = 0;
+    rect.height = 110;
+    rect.width = 110;
 
     window = sfRenderWindow_create(mode, "ELIOOOTTTTTTTTTTTT",
     sfResize | sfClose, NULL);
-    texture = sfTexture_createFromFile("src/eliott.jpeg", NULL);
-    sprite = sfSprite_create();
+    // ! PROBLÈME A REGLER ICI : sprite = ("src/my_hunter_spritesheet.png", NULL);
+    sfSprite_setTextureRect(sprite, rect);
     if (!window || !texture) {
         return EXIT_FAILURE;
     }
