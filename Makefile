@@ -12,20 +12,20 @@ all: libmy.a
 start :
 		mv gitignore.txt .gitignore
 
-#libmy.a:
-#		cd lib/my && make
-#		make clean
-#		echo "libmy.a has been compiled."
+libmy.a:
+		cd lib/my && make
+		make clean
+		echo "libmy.a has been compiled."
 
-#clean:
-#		cd lib/my && make clean
-#		rm -f *.o
+clean:
+		cd lib/my && make clean
+		rm -f *.o
 
 fclean: clean
 		rm -f a.out
 		rm -f $(NAME)
 		rm -f *~
-#		rm -f lib/my/libmy.a
+		rm -f lib/my/libmy.a
 		rm -f lib/my/*.o
 		rm -f lib/my/*~
 		rm -f coding-style-reports.log
