@@ -1,16 +1,10 @@
 /*
 ** EPITECH PROJECT, 2024
-** Epi-Template-C
+** Bootstrap-MyHunter
 ** File description:
-** Main for Epi-Template-C
+** main
 */
-
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include <SFML/Audio/Music.h>
-#include <SFML/Graphics/Export.h>
-#include <SFML/Graphics/Color.h>
-#include <stdlib.h>
+#include "../include/csfml_include.h"
 
 typedef struct sfMusic sfMusic;
 
@@ -34,11 +28,7 @@ int main()
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfRenderWindow_setFramerateLimit(window, 30);
     while (sfRenderWindow_isOpen(window)) {
-        while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event.type == sfEvtClosed) {
-                sfRenderWindow_close(window);
-            }
-        }
+        
         sfRenderWindow_clear(window, sfBlack);
         sfRenderWindow_drawSprite(window, sprite, NULL);
         sfRenderWindow_display(window);
@@ -50,3 +40,16 @@ int main()
     return EXIT_SUCCESS;
 }
 
+void analyse_events(sfRenderWindow *window, sfEvent event)
+{
+    while (sfRenderWindow_pollEvent(window, &event)) {
+            if (event.type == sfEvtClosed) {
+                sfRenderWindow_close(window);
+            }
+            if (event.type == sfEvtMouseButtonPressed) {
+                if (event.mouseButton.button) {
+                    manage_mouse_click(event.mouseButton);
+                }
+            }
+        }
+}

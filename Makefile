@@ -39,8 +39,7 @@ new libmy and compilation"
 re: fclean all
 
 compile:
-        gcc src/main.c -l csfml-graphics csfml-audio
-
+		gcc src/main.c -l csfml-graphics csfml-window
 
 cs: fclean
 		coding-style . .

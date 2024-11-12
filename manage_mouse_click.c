@@ -4,7 +4,9 @@
 ** File description:
 ** manage_mouse_click
 */
+#include "include/csfml_include.h"
 
-#include <SFML/>
-
-void manage_mouse_click(sfMouseButtonEvent event);
+void manage_mouse_click(sfMouseButtonEvent event)
+{
+    printf("Mouse x=%d y=%d", event.x, event.y);
+}
