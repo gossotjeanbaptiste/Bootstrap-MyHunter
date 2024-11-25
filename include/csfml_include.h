@@ -15,8 +15,19 @@
 
 #ifndef INCLUDED_CSFML_INCLUDE_H
     #define INCLUDED_CSFML_INCLUDE_H
-void analyse_events(sfRenderWindow *window, sfEvent event);
-void manage_mouse_click(sfMouseButtonEvent event);
-void close_window(sfRenderWindow *window);
-void main_loop(sfRenderWindow* window, sfEvent event, sfSprite *sprite);
+
+struct csfml_var
+{
+    sfVideoMode mode;
+    sfRenderWindow *window;
+    sfEvent event;
+    sfMouseButtonEvent event;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfIntRect rect;
+};
+void analyse_events(struct csfml_var csfml_var);
+void manage_mouse_click(struct csfml_var csfml_var);
+void close_window(struct csfml_var csfml_var);
+void main_loop(struct csfml_var csfml_var);
 #endif
