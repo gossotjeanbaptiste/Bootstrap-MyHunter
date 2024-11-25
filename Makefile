@@ -15,7 +15,7 @@ start :
 
 libmy.a:
 		cd lib/my && make
-		cd ../.. 
+		cd ../..
 		cd lib/my_graphical && make
 		make clean
 		echo "libmy.a and libmy_graphical.a has been compiled."

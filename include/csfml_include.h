@@ -16,8 +16,7 @@
 #ifndef INCLUDED_CSFML_INCLUDE_H
     #define INCLUDED_CSFML_INCLUDE_H
 
-struct csfml_var
-{
+struct csfml_var {
     sfVideoMode mode;
     sfRenderWindow *window;
     sfEvent event;
@@ -26,8 +25,8 @@ struct csfml_var
     sfTexture *texture;
     sfIntRect rect;
 };
-void analyse_events(struct csfml_var csfml_var);
-void manage_mouse_click(struct csfml_var csfml_var);
-void close_window(struct csfml_var csfml_var);
-void main_loop(struct csfml_var csfml_var);
+void analyse_events(struct csfml_var *csfml_var);
+void manage_mouse_click(struct csfml_var *csfml_var);
+void close_window(struct csfml_var *csfml_var);
+void main_loop(struct csfml_var *csfml_var);
 #endif

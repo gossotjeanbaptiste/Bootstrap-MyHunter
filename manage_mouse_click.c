@@ -9,8 +9,8 @@
 #include "include/my_graphical.h"
 #include "include/struct_fb.h"
 
-void manage_mouse_click(struct csfml_var csfml_var)
+void manage_mouse_click(struct csfml_var *csfml_var)
 {
-    printf("Mouse x=%d y=%d\n", csfml_var.event.mouseButton.x, 
-    csfml_var.event.mouseButton.y);
+    printf("Mouse x=%d y=%d\n", csfml_var->event.mouseButton.x,
+    csfml_var->event.mouseButton.y);
 }

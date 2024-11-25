@@ -6,7 +6,7 @@
 */
 #include "include/csfml_include.h"
 
-void close_window(struct csfml_var csfml_var)
+void close_window(struct csfml_var *csfml_var)
 {
-    sfRenderWindow_close(csfml_var.window);
+    sfRenderWindow_close(csfml_var->window);
 }

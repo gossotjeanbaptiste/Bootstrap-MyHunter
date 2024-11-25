@@ -9,7 +9,7 @@
 #include "struct_fb.h"
 #include <SFML/Graphics.h>
 
-void my_put_pixel(framebuffer_t *framebuffer, unsigned int x, 
+void my_put_pixel(framebuffer_t *framebuffer, unsigned int x,
     unsigned int y, sfColor color)
 {
     int pos = (framebuffer->width * 4 * y) + (x * 4);
