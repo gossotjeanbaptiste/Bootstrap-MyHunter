@@ -4,7 +4,10 @@
 ** File description:
 ** main
 */
-#include "../include/csfml_include.h"
+#include "include/csfml_include.h"
+#include "include/my.h"
+#include "include/my_graphical.h"
+#include "include/struct_fb.h"
 
 int main(void)
 {
@@ -20,11 +23,12 @@ int main(void)
     rect.height = 110;
     rect.width = 110;
 
-    window = sfRenderWindow_create(mode, "ELIOOOTTTTTTTTTTTT",
+    window = sfRenderWindow_create(mode, "Bootstrap My_Hunter",
     sfResize | sfClose, NULL);
-    // ! PROBLÈME A REGLER ICI : sprite = ("src/my_hunter_spritesheet.png", NULL);
+    texture = sfTexture_createFromFile("src/my_hunter_spritesheet.png", NULL);
+    sprite = sfSprite_create();
     sfSprite_setTextureRect(sprite, rect);
-    if (!window || !texture) {
+    if (!window || !texture || !sprite) {
         return EXIT_FAILURE;
     }
     sfSprite_setTexture(sprite, texture, sfTrue);
