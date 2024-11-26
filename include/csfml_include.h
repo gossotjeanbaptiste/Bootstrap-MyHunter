@@ -20,10 +20,12 @@ struct csfml_var {
     sfVideoMode mode;
     sfRenderWindow *window;
     sfEvent event;
-    sfMouseButtonEvent event;
+    sfMouseButtonEvent event_mb;
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect rect;
+    sfClock *clock;
+    sfVector2f velocity;
 };
 void analyse_events(struct csfml_var *csfml_var);
 void manage_mouse_click(struct csfml_var *csfml_var);
